@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 15:53:47 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/11/19 22:56:30 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2020/11/20 10:59:40 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ typedef struct		s_list
 	size_t			size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_read
+{
+	char			*content;
+	size_t			size;
+}					t_read;
 
 // size_t	create(t_list **lst, char *content);
 // void	add(t_list *lst, char *content);
