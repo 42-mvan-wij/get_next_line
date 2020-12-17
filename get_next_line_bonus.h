@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   get_next_line_bonus.h                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/16 15:53:47 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/12/05 16:42:10 by mvan-wij      ########   odam.nl         */
+/*   Created: 2020/12/14 16:18:18 by mvan-wij      #+#    #+#                 */
+/*   Updated: 2020/12/14 20:41:19 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-typedef struct		s_read
+# include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 128
+# endif
+
+typedef struct		s_buffer
 {
 	char			*str;
-	size_t			size;
-}					t_read;
+	ssize_t			size;
+	ssize_t			start;
+	struct s_buffer	*next;
+}					t_buffer;
 
-void				*ft_memcpy(void *dst, const void *src, size_t n);
-void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-size_t				ft_strlen(const char *s);
 int					get_next_line(int fd, char **line);
+void				ft_memcpy(const void *dst, void *src, ssize_t n);
+t_buffer			*new_buffer(ssize_t size);
 
 #endif

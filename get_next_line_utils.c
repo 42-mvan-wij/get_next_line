@@ -5,65 +5,43 @@
 /*                                                     +:+                    */
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/16 15:53:48 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/11/19 14:31:54 by mvan-wij      ########   odam.nl         */
+/*   Created: 2020/12/14 19:11:13 by mvan-wij      #+#    #+#                 */
+/*   Updated: 2020/12/14 20:40:46 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "get_next_line.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-size_t	create(t_list **lst, char *content)
+void		ft_memcpy(const void *dst, void *src, ssize_t n)
 {
-	size_t	len;
+	char	*d;
+	char	*s;
 
-	*lst = malloc(sizeof(t_list));
-	len = 0;
-	if (content != NULL)
+	d = (char *)dst;
+	s = (char *)src;
+	while (n > 0)
 	{
-		(*lst)->content = content;
-		while (content[len] != '\0')
-			len++;
+		n--;
+		d[n] = s[n];
 	}
-	else
-	{
-		(*lst)->content = malloc(1);
-		(*lst)->content[0] = '\0';
-	}
-	(*lst)->next = NULL;
-	return (len);
 }
 
-void	add(t_list *lst, char *content)
+t_buffer	*new_buffer(ssize_t size)
 {
-	while (lst->next)
-		lst = lst->next;
-	lst->next = malloc(sizeof(t_list));
-	lst->next->content = content;
-	lst->next->next = NULL;
-}
+	t_buffer	*buf;
 
-void	collapse(t_list *lst, char *dst)
-{
-	int		i;
-	t_list	*tmp;
-
-	while (lst != NULL)
+	buf = malloc(sizeof(t_buffer));
+	if (buf == NULL)
+		return (NULL);
+	buf->str = malloc(size);
+	if (buf->str == NULL)
 	{
-		printf("new part\n");
-		i = 0;
-		while (lst->content[i] != '\0')
-		{
-			*dst = lst->content[i];
-			dst++;
-			i++;
-		}
-		printf("part added\n");
-		tmp = lst->next;
-		free(lst->content);
-		free(lst);
-		printf("part freed\n");
-		lst = tmp;
+		free(buf);
+		return (NULL);
 	}
+	buf->size = 0;
+	buf->start = 0;
+	buf->next = NULL;
+	return (buf);
 }

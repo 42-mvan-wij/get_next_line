@@ -5,32 +5,29 @@
 /*                                                     +:+                    */
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/16 15:53:47 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/11/20 10:59:40 by mvan-wij      ########   odam.nl         */
+/*   Created: 2020/12/14 16:18:18 by mvan-wij      #+#    #+#                 */
+/*   Updated: 2020/12/14 20:31:57 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
- #define GET_NEXT_LINE_H
- #include <stddef.h>
+# define GET_NEXT_LINE_H
 
-typedef struct		s_list
+# include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 128
+# endif
+
+typedef struct		s_buffer
 {
-	char			*content;
-	size_t			size;
-	struct s_list	*next;
-}					t_list;
-
-typedef struct		s_read
-{
-	char			*content;
-	size_t			size;
-}					t_read;
-
-// size_t	create(t_list **lst, char *content);
-// void	add(t_list *lst, char *content);
-// void	collapse(t_list *lst, char *dst);
+	char			*str;
+	ssize_t			size;
+	ssize_t			start;
+	struct s_buffer	*next;
+}					t_buffer;
 
 int					get_next_line(int fd, char **line);
+void				ft_memcpy(const void *dst, void *src, ssize_t n);
+t_buffer			*new_buffer(ssize_t size);
 
 #endif
