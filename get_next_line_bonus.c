@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 16:13:10 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/12/14 20:38:56 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2020/12/17 11:48:22 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	next(t_buffer **buf)
 	*buf = next;
 }
 
-int			error(t_buffer **buf)
+int		error(t_buffer **buf)
 {
 	if (buf == NULL)
 		return (-1);
