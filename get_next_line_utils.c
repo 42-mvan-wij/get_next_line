@@ -6,11 +6,12 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 19:11:13 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/12/17 11:49:39 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2020/12/17 15:07:51 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
 #include <unistd.h>
 
 void		ft_memcpy(const void *dst, void *src, ssize_t n)
