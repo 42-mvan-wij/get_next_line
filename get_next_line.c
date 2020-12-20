@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 16:13:10 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/12/17 11:48:30 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2020/12/17 15:35:26 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		join(t_buffer **buf, char **line, ssize_t size, int end)
 
 int		get_next_line(int fd, char **line)
 {
-	static t_buffer	*buf[FD_SETSIZE] = { NULL };
+	static t_buffer	*buf[FD_SETSIZE];
 	t_buffer		*cur;
 	ssize_t			size;
 
