@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 16:13:10 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/12/17 15:36:22 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2021/01/09 20:45:00 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	next(t_buffer **buf)
 	if (*buf == NULL)
 		return ;
 	next = (*buf)->next;
-	if ((*buf)->str == NULL)
+	if ((*buf)->str != NULL)
 		free((*buf)->str);
 	free(*buf);
 	*buf = next;
