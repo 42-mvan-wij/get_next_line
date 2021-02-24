@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 16:13:10 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2021/01/09 20:45:00 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2021/02/24 17:46:47 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,7 @@ void	next(t_buffer **buf)
 	*buf = next;
 }
 
-int		error(t_buffer **buf)
-{
-	if (buf == NULL)
-		return (-1);
-	while (*buf != NULL)
-		next(buf);
-	return (-1);
-}
-
-int		has_newline(t_buffer *buf, ssize_t *size)
+int	has_newline(t_buffer *buf, ssize_t *size)
 {
 	ssize_t	i;
 
@@ -48,7 +39,7 @@ int		has_newline(t_buffer *buf, ssize_t *size)
 	return (i != buf->size);
 }
 
-int		join(t_buffer **buf, char **line, ssize_t size, int end)
+int	join(t_buffer **buf, char **line, ssize_t size, int end)
 {
 	ssize_t		i;
 
@@ -71,17 +62,17 @@ int		join(t_buffer **buf, char **line, ssize_t size, int end)
 		(*buf)->size -= size - i + 1;
 		(*buf)->start += size - i + 1;
 	}
-	return (end ? 0 : 1);
+	return (!end);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static t_buffer	*buf[FD_SETSIZE];
 	t_buffer		*cur;
 	ssize_t			size;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || line == NULL)
-		return (error(fd < 0 ? NULL : &buf[fd]));
+		return (error2(fd, buf));
 	size = 0;
 	if (buf[fd] == NULL)
 		buf[fd] = new_buffer(0);

@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 19:11:13 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2020/12/17 15:07:51 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2021/02/24 17:43:36 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,28 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void		ft_memcpy(const void *dst, void *src, ssize_t n)
+int	error(t_buffer **buf)
+{
+	if (buf == NULL)
+		return (-1);
+	while (*buf != NULL)
+		next(buf);
+	return (-1);
+}
+
+int	error2(int fd, t_buffer **buf_arr)
+{
+	t_buffer	*buf;
+
+	if (fd < 0)
+		return (-1);
+	buf = buf_arr[fd];
+	while (buf != NULL)
+		next(&buf);
+	return (-1);
+}
+
+void	ft_memcpy(const void *dst, void *src, ssize_t n)
 {
 	char	*d;
 	char	*s;
