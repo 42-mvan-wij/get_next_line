@@ -6,13 +6,11 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 19:11:13 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2021/03/01 17:59:08 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2021/03/27 14:22:14 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 void	gnl_next(t_buffer **buf)
 {

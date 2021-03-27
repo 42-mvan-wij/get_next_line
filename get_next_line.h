@@ -6,7 +6,7 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 16:18:18 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2021/03/01 18:05:10 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2021/03/27 14:21:58 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
+# include <stdlib.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 128
 # endif

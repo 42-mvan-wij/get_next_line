@@ -6,14 +6,12 @@
 /*   By: mvan-wij <mvan-wij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 16:13:10 by mvan-wij      #+#    #+#                 */
-/*   Updated: 2021/03/01 18:05:05 by mvan-wij      ########   odam.nl         */
+/*   Updated: 2021/03/27 14:21:52 by mvan-wij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <sys/select.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int	has_newline(t_buffer *buf, ssize_t *size)
 {
